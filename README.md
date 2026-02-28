@@ -1,12 +1,3 @@
-# ESP32-Bluetooth-Christmas-Tree
-A high-performance C++ firmware for ESP32 designed to control a tree-shaped LED installation via Bluetooth. This project demonstrates advanced embedded programming techniques, including state-machine architecture and asynchronous (non-blocking) logic.
-
-## 🚀 Technical Highlights (C++ Based)
-- **C++ State-Machine:** The core logic is structured as a state machine to handle 6 distinct lighting modes efficiently.
-- **Asynchronous Execution:** Developed entirely without `delay()` functions. It utilizes `millis()`-based timing to ensure the Bluetooth stack remains responsive and animations run at a consistent frame rate.
-- **Object-Oriented Mindset:** While optimized for microcontrollers, the code follows C++ principles for modularity and readability.
-- **Real-time Communication:** Implements the `BluetoothSerial` library for low-latency command processing.
-
 # 🎄 C++ Embedded Firmware: IoT ESP32 Smart Christmas Tree
 
 A professional C++ firmware for ESP32 designed to control a tree-shaped LED installation via Bluetooth. This project demonstrates advanced embedded programming techniques, including State-Machine architecture and asynchronous (non-blocking) logic.
