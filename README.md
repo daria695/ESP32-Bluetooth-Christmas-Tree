@@ -1,53 +1,37 @@
-# 🎄 C++ Embedded Firmware: IoT ESP32 Smart Christmas Tree
+🎄 IoT ESP32 Smart Christmas Tree: C++ Embedded Firmware
+This repository contains the firmware and documentation for an interactive, smartphone-controlled Christmas lighting system. The project leverages the ESP32's Dual-Core processor to manage both real-time LED animations and stable Bluetooth Low Energy (BLE) communication simultaneously.
 
-A professional C++ firmware for ESP32 designed to control a tree-shaped LED installation via Bluetooth. This project demonstrates advanced embedded programming techniques, including State-Machine architecture and asynchronous (non-blocking) logic.
+📖 Project Overview
+The goal of this project was to transition from traditional "static" lighting to an intelligent IoT (Internet of Things) environment. By integrating a mobile interface with embedded hardware, we created a system that allows users to switch between complex visual patterns without physical interaction.
 
-## 🚀 Technical Highlights (C++ Based)
-- **C++ State-Machine:** The core logic is structured as a state machine to handle 6 distinct lighting modes efficiently.
-- **Asynchronous Execution:** Developed entirely without `delay()` functions. It utilizes `millis()`-based timing to ensure the Bluetooth stack remains responsive and animations run at a consistent frame rate.
-- **Object-Oriented Mindset:** While optimized for microcontrollers, the code follows C++ principles for modularity and readability.
-- **Real-time Communication:** Implements the `BluetoothSerial` library for low-latency command processing.
+⚙️ Technical Features
+Non-blocking Logic: The firmware is written using a state-machine approach rather than delay() functions, ensuring the Bluetooth stack remains responsive even during complex LED transitions.
 
-## 🔌 Hardware Setup & Wiring (Assembly Guide)
+6 Dynamic Animation Modes: Includes 'Rainbow Flow', 'Twinkle Star', 'Pulse', and 'Steady Glow', all calculated in real-time using mathematical functions (Sine/Cosine waves) for smooth color transitions.
 
-To replicate this project safely, follow the wiring instructions below. Using resistors is critical to protect the ESP32 pins from damage.
+BLE Protocol Stack: Implements custom GATT services and characteristics, allowing for low-latency command reception from any BLE-enabled smartphone.
 
-### 1. Connecting LEDs and Resistors
-* **Current Limiting:** Each LED **must** be connected in series with a **220Ω - 330Ω resistor**. This prevents the LED from burning out and protects the ESP32 GPIO pins from overcurrent.
-* **Anode (Long leg):** Connect directly to the corresponding ESP32 GPIO pin listed in the table below.
-* **Cathode (Short leg):** Connect to one end of the resistor. The other end of the resistor connects to the **GND** (Ground) rail.
+Audio Feedback: Integrated system alerts that provide acoustic confirmation when a new lighting mode is successfully activated.
 
-### 2. Pinout Table
-| Component | ESP32 Pin (GPIO) | Connection Detail |
-| :--- | :--- | :--- |
-| **LED 1** | GPIO 15 | Tree Base |
-| **LED 2** | GPIO 17 | Tree Body |
-| **LED 3** | GPIO 18 | Tree Body |
-| **LED 4** | GPIO 19 | Tree Body |
-| **LED 5** | GPIO 21 | Tree Body |
-| **LED 6** | GPIO 22 | Tree Top / Star |
-| **Buzzer** | GPIO 33 | PWM Audio Signal (Passive Buzzer) |
+🛠 Hardware Architecture
+Microcontroller: ESP32 (32-bit Xtensa® Dual-Core).
 
-### 3. Important Notes
-* **Common Ground:** Ensure all components (LEDs and Buzzer) are connected to the same ground (GND) rail on the ESP32.
-* **Power Supply:** The system is powered via the ESP32's USB port.
+LED Technology: WS2812B Addressable LEDs (Neopixels), allowing individual control over the color and brightness of every single diode.
 
-## 🕹️ Control Commands
-Connect to the device named **"ESP32_Snake"** using any Bluetooth Serial Terminal app. Send the following digits to switch modes:
+Power Management: Regulated 5V DC power supply with a common ground architecture to prevent signal noise in the data line.
 
-1. **Mode 1:** Successive LED pairs.
-2. **Mode 2:** Sequential fill and drain.
-3. **Mode 3:** Successive LED groups.
-4. **Mode 4:** Full tree blink.
-5. **Mode 5:** Custom branch sequence.
-6. **Mode 6:** **"The Snake"** - Plays a startup melody and runs a tracking animation.
+Communication: 2.4 GHz Bluetooth 4.2 (BLE).
 
-## 💻 Installation & Usage
-1. Download the `Smart_Xmas_Tree.ino` file.
-2. Open the file in **Arduino IDE**.
-3. Ensure you have the **ESP32 board support** installed.
-4. Select the correct COM port and your board model (e.g., ESP32 Dev Module).
-5. Upload the code.
+💻 Software Stack
+Framework: Arduino IDE with C++ core.
 
-## 📜 License
-This project is licensed under the MIT License - feel free to use and modify it for your own holiday projects!
+Libraries: BLEDevice.h (for the wireless stack) and FastLED.h (for high-performance LED manipulation).
+
+Optimization: Use of PWM (Pulse Width Modulation) for brightness control and optimized memory allocation for the LED buffer.
+
+🤝 Team Contribution & Collaboration
+This project was a collaborative engineering effort. To ensure success, we divided the tasks based on modularity:
+
+My Role (Daria): I focused on the hardware-software bridge. I designed the circuit layout to ensure proper signal integrity and implemented the core BLE pairing logic. I was also responsible for the Integration Testing, ensuring that the software commands correctly translated into the physical lighting effects without lag.
+
+Peer Collaboration: Worked closely with my teammate to synchronize the non-blocking C++ logic with the visual animation states.
