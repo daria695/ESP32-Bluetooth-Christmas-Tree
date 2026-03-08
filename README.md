@@ -32,6 +32,6 @@ Optimization: Use of PWM (Pulse Width Modulation) for brightness control and opt
 🤝 Team Contribution & Collaboration
 This project was a collaborative engineering effort. To ensure success, we divided the tasks based on modularity:
 
-My Role (Daria): I focused on the hardware-software bridge. I designed the circuit layout to ensure proper signal integrity and implemented the core BLE pairing logic. I was also responsible for the Integration Testing, ensuring that the software commands correctly translated into the physical lighting effects without lag.
+My Role: I focused on the hardware-software bridge. I designed the circuit layout to ensure proper signal integrity and implemented the core BLE pairing logic. I was also responsible for the Integration Testing, ensuring that the software commands correctly translated into the physical lighting effects without lag.
 
 Peer Collaboration: Worked closely with my teammate to synchronize the non-blocking C++ logic with the visual animation states.
